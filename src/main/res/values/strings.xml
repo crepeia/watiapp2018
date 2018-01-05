@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Viva Sem Tabaco</string>
+    <!--<string name="url">http://192.168.25.50:8080/wati/AppWebService?wsdl</string>
+    <string name="namespace">http://ws.wati/</string>-->
+    <string name="urlWebService">http://localhost:12621/wati/AppWebService?wsdl</string>
+    <string name="namespaceWebService">http://localhost:12621/wati/</string>
+    <string name="dbName">watiAndroid.db</string>
+    <string name="dbVersion">7</string>
+</resources>
