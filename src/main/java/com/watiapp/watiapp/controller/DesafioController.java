@@ -1,11 +1,12 @@
 package com.watiapp.watiapp.controller;
 
+import android.util.Log;
+
 import com.watiapp.watiapp.dao.DBSQLite;
 import com.watiapp.watiapp.dao.DesafioDAO;
-import com.watiapp.watiapp.model.TarefaDesafio;
+import com.watiapp.watiapp.model.Desafio;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,9 +18,14 @@ public class DesafioController {
     private DesafioDAO desafioDAO;
     private DBSQLite dbsqLite;
 
-    public DesafioController(DBSQLite dbsqLite) throws SQLException {
-        this.desafioDAO = new DesafioDAO(dbsqLite.getConnectionSource());
-        this.dbsqLite = dbsqLite;
+    public DesafioController(DBSQLite dbsqLite) {
+        try{
+            this.desafioDAO = new DesafioDAO(dbsqLite.getConnectionSource());
+            this.dbsqLite = dbsqLite;
+
+        }catch (Exception ex){
+            Log.e("DesafioController" , "Ocorreu um erro ao tentar construir um novo objeto");
+        }
     }
 
     public List<String> buscaDesafiosString(){
@@ -27,18 +33,13 @@ public class DesafioController {
         return desafioDAO.buscaDesafiosString();
     }
 
-    public List<TarefaDesafio> buscaDesafios(){
-        List<TarefaDesafio> desafios = new ArrayList<>();
+    public List<Desafio> buscaDesafios(){
 
-        try {
+        return desafioDAO.buscaDesafios();
+    }
 
-            desafios = desafioDAO.queryForAll();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return desafios;
+    public Desafio buscaDesafioTitulo(String titulo){
+        return desafioDAO.buscaDesafioTitulo(titulo);
     }
 
 }

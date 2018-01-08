@@ -2,7 +2,7 @@ package com.watiapp.watiapp.webService;
 
 import android.os.AsyncTask;
 
-import com.watiapp.watiapp.model.TarefaDesafio;
+import com.watiapp.watiapp.model.Desafio;
 import com.watiapp.watiapp.model.Usuario;
 
 import java.util.HashMap;
@@ -13,10 +13,10 @@ import java.util.HashMap;
 
 public class PontoWebService extends AsyncTask<String, Void, Boolean> {
 
-    private TarefaDesafio desafio;
+    private Desafio desafio;
     private Usuario usuario;
 
-    public PontoWebService(TarefaDesafio desafio, Usuario usuario) {
+    public PontoWebService(Desafio desafio, Usuario usuario) {
         this.desafio = desafio;
         this.usuario = usuario;
     }

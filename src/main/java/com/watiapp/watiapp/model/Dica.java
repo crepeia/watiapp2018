@@ -8,7 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
  */
 
 @DatabaseTable(tableName = "dica")
-public class TarefaDica {
+public class Dica {
 
     @DatabaseField(columnName = "id", generatedId=true)
     private long id;
@@ -21,13 +21,13 @@ public class TarefaDica {
     @DatabaseField(columnName = "gostou")
     private boolean gostou;
 
-    public TarefaDica() {}
+    public Dica() {}
 
     public boolean isGostou() {
         return gostou;
     }
 
-    public TarefaDica setGostou(boolean gostou) {
+    public Dica setGostou(boolean gostou) {
         this.gostou = gostou;
         return this;
     }
@@ -36,7 +36,7 @@ public class TarefaDica {
         return id;
     }
 
-    public TarefaDica setId(long id) {
+    public Dica setId(long id) {
         this.id = id;
         return this;
     }
@@ -45,7 +45,7 @@ public class TarefaDica {
         return titulo;
     }
 
-    public TarefaDica setTitulo(String titulo) {
+    public Dica setTitulo(String titulo) {
         this.titulo = titulo;
         return this;
     }
@@ -54,7 +54,7 @@ public class TarefaDica {
         return descricao;
     }
 
-    public TarefaDica setDescricao(String descricao) {
+    public Dica setDescricao(String descricao) {
         this.descricao = descricao;
         return this;
     }
@@ -63,7 +63,7 @@ public class TarefaDica {
         return ponto;
     }
 
-    public TarefaDica setPonto(int ponto) {
+    public Dica setPonto(int ponto) {
         this.ponto = ponto;
         return this;
     }

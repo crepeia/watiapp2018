@@ -1,8 +1,9 @@
-package com.watiapp.watiapp;
+package com.watiapp.watiapp.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.watiapp.watiapp.R;
 import com.watiapp.watiapp.dao.DBSQLite;
 
 public class MainActivity extends AppCompatActivity {

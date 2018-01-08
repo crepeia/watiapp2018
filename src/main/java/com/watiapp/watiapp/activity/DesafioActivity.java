@@ -7,8 +7,7 @@ import android.widget.ListView;
 import com.watiapp.watiapp.R;
 import com.watiapp.watiapp.controller.DesafioController;
 import com.watiapp.watiapp.dao.DBSQLite;
-import com.watiapp.watiapp.model.TarefaDesafio;
-import java.util.ArrayList;
+
 import java.util.List;
 
 /**
@@ -28,19 +27,15 @@ public class DesafioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_desafio);
 
         dbsqLite = new DBSQLite(DesafioActivity.this, DB_NAME , DB_VERSION);
+        desafioController = new DesafioController(dbsqLite);
 
         preencheListaDesafios();
     }
 
     private void preencheListaDesafios(){
         ListView listaDesafios = (ListView) findViewById(R.id.listDesafios);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, buscaDesafios());
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, desafioController.buscaDesafiosString());
         listaDesafios.setAdapter(adapter);
-
-    }
-
-    private ArrayList<String> buscaDesafios(){
-        return desafioController.buscaDesafiosString();
     }
 
 }

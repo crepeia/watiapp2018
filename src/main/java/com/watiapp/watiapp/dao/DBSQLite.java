@@ -8,8 +8,8 @@ import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.watiapp.watiapp.model.Cigarro;
-import com.watiapp.watiapp.model.TarefaDesafio;
-import com.watiapp.watiapp.model.TarefaDica;
+import com.watiapp.watiapp.model.Desafio;
+import com.watiapp.watiapp.model.Dica;
 import com.watiapp.watiapp.model.Usuario;
 import com.j256.ormlite.dao.Dao;
 
@@ -17,8 +17,8 @@ public class DBSQLite extends OrmLiteSqliteOpenHelper {
 
     private Dao<Usuario, Integer> usuarioDao;
     private Dao<Cigarro, Integer> cigarroDao;
-    private Dao<TarefaDesafio, Integer> desafioDao;
-    private Dao<TarefaDica, Integer> dicaDao;
+    private Dao<Desafio, Integer> desafioDao;
+    private Dao<Dica, Integer> dicaDao;
 
     public DBSQLite(Context context, String DB_NAME, int DB_VERSION) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -31,8 +31,8 @@ public class DBSQLite extends OrmLiteSqliteOpenHelper {
 
             TableUtils.createTable(connectionSource, Usuario.class);
             TableUtils.createTable(connectionSource, Cigarro.class);
-            TableUtils.createTable(connectionSource, TarefaDesafio.class);
-            TableUtils.createTable(connectionSource, TarefaDica.class);
+            TableUtils.createTable(connectionSource, Desafio.class);
+            TableUtils.createTable(connectionSource, Dica.class);
 
         } catch (SQLException e) {
             Log.e(DBSQLite.class.getName(), "Unable to create datbases", e);
@@ -53,8 +53,8 @@ public class DBSQLite extends OrmLiteSqliteOpenHelper {
 
             TableUtils.dropTable(connectionSource, Usuario.class, true);
             TableUtils.dropTable(connectionSource, Cigarro.class, true);
-            TableUtils.dropTable(connectionSource, TarefaDesafio.class, true);
-            TableUtils.dropTable(connectionSource, TarefaDica.class, true);
+            TableUtils.dropTable(connectionSource, Desafio.class, true);
+            TableUtils.dropTable(connectionSource, Dica.class, true);
             onCreate(db, connectionSource);
 
         } catch (SQLException e) {
@@ -83,16 +83,16 @@ public class DBSQLite extends OrmLiteSqliteOpenHelper {
         return cigarroDao;
     }
 
-    public Dao<TarefaDesafio, Integer> getDesafioDao() throws SQLException, java.sql.SQLException {
+    public Dao<Desafio, Integer> getDesafioDao() throws SQLException, java.sql.SQLException {
         if (desafioDao == null){
-            desafioDao = getDao(TarefaDesafio.class);
+            desafioDao = getDao(Desafio.class);
         }
         return desafioDao;
     }
 
-    public Dao<TarefaDica, Integer> getDicasDao() throws SQLException, java.sql.SQLException {
+    public Dao<Dica, Integer> getDicasDao() throws SQLException, java.sql.SQLException {
         if (dicaDao == null){
-            dicaDao = getDao(TarefaDica.class);
+            dicaDao = getDao(Dica.class);
         }
         return dicaDao;
     }

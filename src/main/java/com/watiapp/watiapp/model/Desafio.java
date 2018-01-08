@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Created by fernanda on 11/12/17.
  */
 @DatabaseTable(tableName = "desafio")
-public class TarefaDesafio  implements Serializable{
+public class Desafio implements Serializable{
 
     @DatabaseField(columnName ="id", generatedId = true)
     private long id;
@@ -19,16 +19,16 @@ public class TarefaDesafio  implements Serializable{
     private String descricao;
     @DatabaseField(columnName = "ponto")
     private int ponto;
-    @DatabaseField(columnName = "tipo")
+    @DatabaseField(foreign = true)
     private Tipo tipo;
 
-    public TarefaDesafio(){}
+    public Desafio(){}
 
     public Tipo getTipo() {
         return tipo;
     }
 
-    public TarefaDesafio setTipo(Tipo tipo) {
+    public Desafio setTipo(Tipo tipo) {
         this.tipo = tipo;
         return this;
     }
@@ -37,7 +37,7 @@ public class TarefaDesafio  implements Serializable{
         return id;
     }
 
-    public TarefaDesafio setId(long id) {
+    public Desafio setId(long id) {
         this.id = id;
         return this;
     }
@@ -46,7 +46,7 @@ public class TarefaDesafio  implements Serializable{
         return titulo;
     }
 
-    public TarefaDesafio setTitulo(String titulo) {
+    public Desafio setTitulo(String titulo) {
         this.titulo = titulo;
         return this;
     }
@@ -55,7 +55,7 @@ public class TarefaDesafio  implements Serializable{
         return descricao;
     }
 
-    public TarefaDesafio setDescricao(String descricao) {
+    public Desafio setDescricao(String descricao) {
         this.descricao = descricao;
         return this;
     }
@@ -64,7 +64,7 @@ public class TarefaDesafio  implements Serializable{
         return ponto;
     }
 
-    public TarefaDesafio setPonto(int ponto) {
+    public Desafio setPonto(int ponto) {
         this.ponto = ponto;
         return this;
     }

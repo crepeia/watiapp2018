@@ -28,9 +28,9 @@ public class Usuario implements Serializable {
     @DatabaseField(columnName = "data")
     private Date data;
     @DatabaseField(foreign = true)
-    private List<TarefaDesafio> desafiosRealizados;
+    private List<DesafioUsuario> desafiosRealizados;
     @DatabaseField(foreign = true)
-    private List<TarefaDica> dicasLidas;
+    private List<DicaUsuario> dicasLidas;
 
     public Usuario() {}
 
@@ -70,12 +70,20 @@ public class Usuario implements Serializable {
         return this;
     }
 
-    public List<TarefaDesafio> getDesafiosRealizados() {
+    public List<DesafioUsuario> getDesafiosRealizados() {
         return desafiosRealizados;
     }
 
-    public void setDesafiosRealizados(List<TarefaDesafio> desafiosRealizados) {
+    public void setDesafiosRealizados(List<DesafioUsuario> desafiosRealizados) {
         this.desafiosRealizados = desafiosRealizados;
+    }
+
+    public List<DicaUsuario> getDicasLidas() {
+        return dicasLidas;
+    }
+
+    public void setDicasLidas(List<DicaUsuario> dicasLidas) {
+        this.dicasLidas = dicasLidas;
     }
 
     public int getNumCigarrosDiarios() {
